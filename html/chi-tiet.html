@@ -1,9 +1,11 @@
+<!-- html/chi-tiet.html -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Chi tiết sản phẩm & Giỏ hàng</title>
-    <!-- Gợi file CSS riêng -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết ngành đào tạo - Trường KT&CN</title>
+    <!-- Gọi file CSS riêng -->
     <link rel="stylesheet" href="../css/style.css">
     
     <!-- Nhúng Bootstrap 5 -->
@@ -13,78 +15,79 @@
 <body class="bg-light">
 
     <!-- Header Thanh Điều Hướng -->
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Trang Chủ</a>
-            <div class="navbar-nav">
+            <a class="navbar-brand fw-bold" href="../index.html">TRƯỜNG ĐẠI HỌC KỸ THUẬT VÀ CÔNG NGHỆ - TVU</a>
+            <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="gioi-thieu.html">Giới thiệu</a>
-                <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+                <a class="nav-link active" href="san-pham.html">Ngành học</a>
                 <a class="nav-link" href="lien-he.html">Liên hệ</a>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="container">
-        <!-- Nút quay lại -->
+    <div class="container my-5">
+        <!-- Nút quay lại danh sách ngành -->
         <div class="mb-4">
-            <a href="san-pham.html" class="btn btn-outline-secondary rounded-pill">← Quay lại danh sách</a>
+            <a href="san-pham.html" class="btn btn-outline-secondary rounded-pill">← Quay lại các ngành học</a>
         </div>
 
-        <!-- KHU VỰC 1: CHI TIẾT SẢN PHẨM ĐƯỢC BẤM VÀO XEM -->
+        <!-- KHU VỰC 1: CHI TIẾT NGÀNH HỌC -->
         <div class="row align-items-center bg-white p-4 rounded-4 shadow-sm mb-5">
-            <div class="col-md-6 text-center">
-                <img src="" alt="" id="image" class="img-fluid rounded shadow-sm object-fit-contain" style="max-height: 350px;">
+            <div class="col-md-5 text-center">
+                <img src="" alt="" id="image" class="img-fluid rounded-4 shadow-sm object-fit-cover w-100" style="max-height: 320px;">
             </div>
             
-            <div class="col-md-6">
-                <h2 id="name" class="fw-bold text-dark mb-3">Tên sản phẩm: </h2>
+            <div class="col-md-7">
+                <h2 id="name" class="fw-bold text-dark mb-3">Tên ngành học: </h2>
                 <div class="mb-3 d-flex align-items-center gap-3">
-                    <span id="price" class="badge bg-danger fs-5 px-3 py-2" style="border-radius: 8px;">Giá: </span>
+                    <span id="price" class="badge bg-danger fs-6 px-3 py-2" style="border-radius: 8px;">Đặc điểm nổi bật: </span>
                 </div>
-                <p id="description" class="mt-3 text-muted lead" style="font-size: 1.05rem; line-height: 1.6;">Mô tả: </p>
-                <div class="mt-4">
-                    <button class="btn btn-primary px-4 py-2" style="border-radius: 15px;">Mua ngay</button>
-                    <!-- SỰ KIỆN: Thêm vào giỏ thực tế -->
-                    <button class="btn btn-warning text-white px-4 py-2" style="border-radius: 15px;" onclick="addToCart()">Thêm vào giỏ hàng</button>
+                <p id="description" class="mt-3 text-muted lead" style="font-size: 1.05rem; line-height: 1.6;">Mô tả ngành: </p>
+                <div class="mt-4 d-flex gap-3">
+                    <a href="lien-he.html" class="btn btn-primary px-4 py-2" style="border-radius: 15px;">Đăng ký tư vấn ngay</a>
+                    <!-- SỰ KIỆN: Thêm vào danh sách ngành quan tâm -->
+                    <button class="btn btn-warning text-white px-4 py-2" style="border-radius: 15px;" onclick="addToInterests()">Lưu ngành quan tâm</button>
                 </div>
             </div>
         </div>
 
-        <!-- KHU VỰC 2: GIỎ HÀNG THỰC TẾ -->
+        <!-- KHU VỰC 2: DANH SÁCH CÁC NGÀNH BẠN ĐANG QUAN TÂM (Thay thế giỏ hàng) -->
         <div class="bg-white p-4 rounded-4 shadow-sm mb-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="fw-bold text-dark mb-0">🛒 Giỏ Hàng Của Bạn (<span id="cart-count">0</span> mặt hàng)</h3>
-                <button class="btn btn-sm btn-outline-danger" onclick="clearCart()">Xóa toàn bộ giỏ</button>
+                <h3 class="fw-bold text-dark mb-0">🎯 Ngành Học Bạn Đang Quan Tâm (<span id="interest-count">0</span>)</h3>
+                <button class="btn btn-sm btn-outline-danger" onclick="clearInterests()">Xóa danh sách lưu</button>
             </div>
             
-            <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+            <div class="table-responsive">
                 <table class="table table-hover align-middle">
                     <thead class="table-dark">
                         <tr>
                             <th>Hình ảnh</th>
-                            <th>Tên loại sách</th>
-                            <th>Đơn giá</th>
-                            <th style="width: 100px;" class="text-center">Số lượng</th>
-                            <th>Thành tiền</th>
+                            <th>Tên ngành học</th>
+                            <th>Tổ hợp xét tuyển</th>
+                            <th class="text-center">Hành động</th>
                         </tr>
                     </thead>
-                    <tbody id="cart-table-body">
-                        <!-- Chờ Javascript đổ sản phẩm thực tế vào -->
+                    <tbody id="interest-table-body">
+                        <!-- Chờ Javascript đổ các ngành học đã lưu vào -->
                     </tbody>
                 </table>
-            </div>
-
-            <!-- Khung Tổng Tiền Giỏ Hàng -->
-            <div class="text-end mt-4">
-                <h4 class="fw-bold text-danger">Tổng cộng giỏ hàng: <span id="cart-total-price">0đ</span></h4>
-                <button class="btn btn-success px-5 py-2 mt-2" style="border-radius: 12px; font-weight: 600;">Tiến hành thanh toán</button>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-muted py-4 text-center mt-5">
+        <div class="container">
+            <p class="mb-0">© 2026 Trường Kỹ thuật và Công nghệ - Đại học Trà Vinh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Gọi script dữ liệu chung -->
     <script src="../js/script.js"></script>
     <script>
-        // --- CHỨC NĂNG 1: HIỂN THỊ CHI TIẾT SẢN PHẨM ---
+        // --- CHỨC NĂNG 1: TRÍCH XUẤT VÀ HIỂN THỊ CHI TIẾT NGÀNH ---
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('masp'); 
 
@@ -92,94 +95,90 @@
 
         if (found) {
             document.getElementById("name").innerHTML = found.name;
-            document.getElementById("price").innerHTML = "Giá: " + found.price;
-            document.getElementById("description").innerHTML = "Mô tả: " + found.description;
+            document.getElementById("price").innerHTML = "Tổ hợp xét tuyển: " + found.price;
+            document.getElementById("description").innerHTML = found.description;
             document.getElementById("image").src = found.image; 
             document.getElementById("image").alt = found.name;
         } else {
-            document.getElementById("name").innerHTML = "Không tìm thấy thông tin sản phẩm!";
+            document.getElementById("name").innerHTML = "Không tìm thấy thông tin ngành học!";
             document.getElementById("price").style.display = "none";
             document.getElementById("image").style.display = "none";
         }
 
-        // --- CHỨC NĂNG 2: QUẢN LÝ VÀ ĐỔ GIỎ HÀNG THỰC TẾ PHÍA DƯỚI ---
+        // --- CHỨC NĂNG 2: QUẢN LÝ DANH SÁCH NGÀNH QUAN TÂM ---
         
-        // Lấy giỏ hàng từ localStorage (nếu chưa có thì tạo mảng rỗng)
-        function getCart() {
-            return JSON.parse(localStorage.getItem('realCart')) || [];
+        // Lấy danh sách ngành đã lưu từ bộ nhớ trình duyệt
+        function getInterests() {
+            return JSON.parse(localStorage.getItem('interestSectors')) || [];
         }
 
-        // Hàm click Thêm vào giỏ
-        function addToCart() {
+        // Lưu ngành hiện tại vào danh sách quan tâm
+        function addToInterests() {
             if (!found) return;
             
-            let cart = getCart();
-            let existingItem = cart.find(item => item.id === found.id);
-            
-            // Chuyển đổi chuỗi giá từ "135k" thành số 135000 để tính toán
-            let numericPrice = parseInt(found.price) * 1000;
+            let interests = getInterests();
+            let isExist = interests.some(item => item.id === found.id);
 
-            if (existingItem) {
-                existingItem.quantity += 1;
+            if (isExist) {
+                alert(`Bạn đã lưu ngành "${found.name}" vào danh sách quan tâm trước đó rồi!`);
             } else {
-                cart.push({
+                interests.push({
                     id: found.id,
                     name: found.name,
-                    price: numericPrice,
-                    quantity: 1,
+                    price: found.price,
                     image: found.image
                 });
+                localStorage.setItem('interestSectors', JSON.stringify(interests));
+                alert(`Đã lưu thành công ngành "${found.name}" vào danh sách quan tâm!`);
+                renderInterests(); 
             }
-            
-            localStorage.setItem('realCart', JSON.stringify(cart));
-            alert(`Đã thêm sách "${found.name}" vào giỏ hàng thành công!`);
-            renderCart(); // Cập nhật lại giao diện bảng bên dưới
         }
 
-        // Hàm render giao diện bảng giỏ hàng
-        function renderCart() {
-            const cartTableBody = document.getElementById("cart-table-body");
-            cartTableBody.innerHTML = ""; // Xóa trắng để vẽ lại
+        // Vẽ lại bảng các ngành quan tâm ở phía dưới
+        function renderInterests() {
+            const tableBody = document.getElementById("interest-table-body");
+            tableBody.innerHTML = ""; 
             
-            let cart = getCart();
-            let totalCartMoney = 0;
+            let interests = getInterests();
+            document.getElementById("interest-count").innerText = interests.length;
 
-            document.getElementById("cart-count").innerText = cart.length;
-
-            if (cart.length === 0) {
-                cartTableBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">Giỏ hàng trống. Hãy chọn sản phẩm và bấm thêm vào giỏ!</td></tr>`;
-                document.getElementById("cart-total-price").innerText = "0 đ";
+            if (interests.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="4" class="text-center text-muted py-4">Bạn chưa lưu quan tâm ngành học nào.</td></tr>`;
                 return;
             }
 
-            cart.forEach(item => {
-                const lineTotal = item.price * item.quantity;
-                totalCartMoney += lineTotal;
-
+            interests.forEach(item => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-                    <td><img src="${item.image}" alt="${item.name}" class="rounded" style="width: 50px; height: 50px; object-fit: cover;"></td>
+                    <td><img src="${item.image}" alt="${item.name}" class="rounded" style="width: 60px; height: 40px; object-fit: cover;"></td>
                     <td class="fw-semibold text-dark">${item.name}</td>
-                    <td class="text-secondary">${item.price.toLocaleString('vi-VN')} đ</td>
-                    <td class="text-center fw-bold">${item.quantity}</td>
-                    <td class="text-danger fw-bold">${lineTotal.toLocaleString('vi-VN')} đ</td>
+                    <td><span class="badge bg-success">${item.price}</span></td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-danger rounded-pill" onclick="deleteSingleInterest('${item.id}')">Gỡ bỏ</button>
+                    </td>
                 `;
-                cartTableBody.appendChild(tr);
+                tableBody.appendChild(tr);
             });
-
-            document.getElementById("cart-total-price").innerText = totalCartMoney.toLocaleString('vi-VN') + " đ";
         }
 
-        // Hàm xóa toàn bộ giỏ
-        function clearCart() {
-            if(confirm("Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng?")) {
-                localStorage.removeItem('realCart');
-                renderCart();
+        // Xóa một ngành cụ thể khỏi danh sách lưu
+        function deleteSingleInterest(id) {
+            let interests = getInterests();
+            interests = interests.filter(item => item.id !== id);
+            localStorage.setItem('interestSectors', JSON.stringify(interests));
+            renderInterests();
+        }
+
+        // Xóa sạch toàn bộ danh sách lưu
+        function clearInterests() {
+            if(confirm("Bạn có chắc chắn muốn xóa toàn bộ danh sách ngành học đang quan tâm?")) {
+                localStorage.removeItem('interestSectors');
+                renderInterests();
             }
         }
 
-        // Tự động chạy hiển thị giỏ hàng khi vừa tải trang xong
-        renderCart();
+        // Khởi động render ngay khi tải xong trang
+        renderInterests();
     </script>
 </body>
 </html>

@@ -1,69 +1,140 @@
+<!-- html/gioi-thieu.html -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Chi tiết sản phẩm</title>
-    <!-- GỌI CSS RIÊNG: Nhảy ra ngoài thư mục html để vào thư mục css -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - Trường Kỹ thuật và Công nghệ</title>
+    <!-- Gọi file CSS riêng của bạn -->
     <link rel="stylesheet" href="../css/style.css">
     
-    <!-- Bootstrap 5 -->
+    <!-- Nhúng Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="bg-light">
 
-    <div class="container mt-5">
-        <div class="mb-4">
-            <!-- Quay trở lại trang danh sách nằm cùng cấp trong thư mục html/ -->
-            <a href="san-pham.html" class="btn btn-outline-secondary rounded-pill">← Quay lại danh sách</a>
+    <!-- Header Thanh Điều Hướng -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-5" role="navigation">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Trang Chủ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" href="gioi-thieu.html">Giới thiệu</a>
+                    <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+                    <a class="nav-link" href="lien-he.html">Liên hệ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <div class="container my-5">
+        
+        <!-- Banner Tiêu Đề -->
+        <div class="text-center mb-5 p-5 bg-white rounded-4 shadow-sm">
+            <h1 class="fw-bold text-primary mb-3">TRƯỜNG KỸ THUẬT VÀ CÔ</h1>
+            <h5 class="text-secondary text-uppercase tracking-wider">Đại Học Trà Vinh (TVU)</h5>
+            <div class="mx-auto my-3 bg-warning" style="height: 4px; width: 80px; border-radius: 2px;"></div>
+            <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                Nơi đào tạo kỹ sư thực hành chất lượng cao, thích ứng nhanh trong thời đại số và hội nhập quốc tế với các chương trình đào tạo đạt tiêu chuẩn toàn cầu.
+            </p>
         </div>
 
-        <div class="row align-items-center detail-box">
-            
-            <div class="col-md-6 text-center">
-                <img src="" alt="" id="image" class="img-fluid rounded shadow-sm object-fit-contain" style="max-height: 400px;">
+        <!-- Khối thông tin nổi bật (ABET) -->
+        <div class="row align-items-center mb-5 g-4">
+            <div class="col-lg-6">
+                <div class="p-4 bg-primary text-white rounded-4 shadow-sm h-100 d-flex flex-column justify-content-center">
+                    <span class="badge bg-warning text-dark align-self-start mb-3 px-3 py-2 fw-bold fs-6">ĐIỂM SÁNG QUỐC TẾ</span>
+                    <h3 class="fw-bold mb-3">Kiểm Định ABET (Hoa Kỳ)</h3>
+                    <p class="fs-6" style="line-height: 1.7; opacity: 0.95;">
+                        Trường Kỹ thuật và Công nghệ tự hào khẳng định chất lượng đào tạo vượt trội với 04 chương trình đào tạo đạt chuẩn kiểm định khắt khe của <strong>ABET (Mỹ)</strong>. Đây là "chìa khóa vàng" giúp sinh viên sở hữu năng lực chuyên môn đạt chuẩn toàn cầu, mở rộng cơ hội làm việc tại các tập đoàn đa quốc gia và học cao học tại nước ngoài.
+                    </p>
+                </div>
             </div>
-            
+            <div class="col-lg-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                    <h4 class="fw-bold text-dark mb-4">Các ngành đạt kiểm định ABET mũi nhọn:</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center gap-3 py-3 border-0">
+                            <span class="badge bg-danger rounded-circle p-2">✓</span>
+                            <div>
+                                <strong class="text-dark">Công nghệ Kỹ thuật Công trình Xây dựng</strong>
+                                <div class="text-muted small">Thiết kế kết cấu, thi công và quản lý dự án xây dựng bền vững.</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center gap-3 py-3 border-0">
+                            <span class="badge bg-danger rounded-circle p-2">✓</span>
+                            <div>
+                                <strong class="text-dark">Công nghệ Kỹ thuật Cơ khí</strong>
+                                <div class="text-muted small">Thiết kế chế tạo máy, gia công chính xác và tự động hóa công nghiệp.</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center gap-3 py-3 border-0">
+                            <span class="badge bg-danger rounded-circle p-2">✓</span>
+                            <div>
+                                <strong class="text-dark">Công nghệ Kỹ thuật Điện - Điện tử</strong>
+                                <div class="text-muted small">Nền tảng truyền tải năng lượng, thiết kế vi mạch và IoT hiện đại.</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center gap-3 py-3 border-0">
+                            <span class="badge bg-danger rounded-circle p-2">✓</span>
+                            <div>
+                                <strong class="text-dark">Công nghệ Thông tin / Kỹ thuật Phần mềm</strong>
+                                <div class="text-muted small">Phát triển hệ thống phần mềm, Trí tuệ nhân tạo (AI) và mạng máy tính.</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tầm nhìn & Sứ mệnh -->
+        <div class="row g-4 mb-5">
             <div class="col-md-6">
-                <h2 id="name" class="fw-bold text-dark mb-3">Tên sản phẩm: </h2>
-                
-                <div class="mb-3">
-                    <span id="price" class="badge bg-danger fs-5 px-3 py-2" style="border-radius: 8px;">Giá: </span>
-                </div>
-                
-                <p id="description" class="mt-3 text-muted lead" style="font-size: 1.05rem; line-height: 1.6;">Mô tả: </p>
-                
-                <div class="mt-4">
-                    <a href="#" class="btn btn-primary btn-action">Mua ngay</a>
-                    <a href="#" class="btn btn-warning btn-action text-white">Thêm vào giỏ hàng</a>
+                <div class="card border-0 rounded-4 shadow-sm p-4 h-100">
+                    <div class="card-body">
+                        <h4 class="fw-bold text-primary mb-3">🎯 Tầm Nhìn</h4>
+                        <p class="text-muted" style="line-height: 1.6;">
+                            Trở thành trung tâm đào tạo, nghiên cứu khoa học và chuyển giao công nghệ uy tín hàng đầu trong khu vực Đồng bằng sông Cửu Long và cả nước; tiệm cận chất lượng giáo dục của các quốc gia tiên tiến trên thế giới.
+                        </p>
+                    </div>
                 </div>
             </div>
-
+            <div class="col-md-6">
+                <div class="card border-0 rounded-4 shadow-sm p-4 h-100">
+                    <div class="card-body">
+                        <h4 class="fw-bold text-primary mb-3">🚀 Sứ Mệnh</h4>
+                        <p class="text-muted" style="line-height: 1.6;">
+                            Đào tạo nguồn nhân lực kỹ thuật chất lượng cao, có ý thức kỷ luật, đạo đức nghề nghiệp tốt, khả năng tự học suốt đời và khả năng thích ứng cao với sự phát triển không ngừng của khoa học công nghệ toàn cầu.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Khung liên hệ nhanh -->
+        <div class="bg-dark text-white p-5 rounded-4 shadow text-center">
+            <h3 class="fw-bold mb-3">Kết Nối Với Chúng Tôi</h3>
+            <p class="opacity-75 mb-4">Mọi thắc mắc về tuyển sinh, chương trình đào tạo hoặc hợp tác doanh nghiệp xin vui lòng liên hệ:</p>
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+                <span class="fs-6">📍 <strong>Địa chỉ:</strong> Số 126 Nguyễn Thiện Thành, Phường 5, Trà Vinh</span>
+                <span class="fs-6">📞 <strong>Hotline:</strong> (0294) 3 855 246</span>
+                <span class="fs-6">🌐 <strong>Website:</strong> <a href="https://daotao.tvu.edu.vn" class="text-warning text-decoration-none" target="_blank">daotao.tvu.edu.vn</a></span>
+            </div>
+        </div>
+
     </div>
 
-    <!-- GỌI DATA: Nhảy ra ngoài để vào thư mục js -->
-    <script src="../js/script.js"></script>
-    <script>
-        // 1. Lấy mã sản phẩm từ URL gửi sang
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('masp'); 
+    <!-- Footer -->
+    <footer class="bg-dark text-muted py-4 mt-5 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Trường Kỹ thuật và Công nghệ - Đại học Trà Vinh. All rights reserved.</p>
+        </div>
+    </footer>
 
-        // 2. Tìm kiếm phần tử tương ứng trong mảng dữ liệu tiếng Anh (.id)
-        let found = productlistt.find(item => item.id === productId);
-
-        if (found) {
-            // 3. Khớp và đổ các thuộc tính vào thẻ HTML tương ứng
-            document.getElementById("name").innerHTML = "Môn học: " + found.name;
-            document.getElementById("price").innerHTML = "Giá: " + found.price;
-            document.getElementById("description").innerHTML = "Mô tả: " + found.description;
-            document.getElementById("image").src = found.image; 
-            document.getElementById("image").alt = found.name;
-        } else {
-            document.getElementById("name").innerHTML = "Không tìm thấy thông tin sản phẩm!";
-            document.getElementById("price").style.display = "none";
-            document.getElementById("image").style.display = "none";
-        }
-    </script>
 </body>
 </html>

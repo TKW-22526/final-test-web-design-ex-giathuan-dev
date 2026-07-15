@@ -1,9 +1,11 @@
-<!DOCTYPE HTML>
+<!-- html/lien-he.html -->
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Liên hệ</title>
-    <!-- Đi ngược ra ngoài thư mục html để liên kết file CSS riêng -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Trường KT&CN</title>
+    <!-- Gọi CSS riêng -->
     <link rel="stylesheet" href="../css/style.css">
     
     <!-- Bootstrap 5 -->
@@ -12,56 +14,107 @@
 </head>
 <body class="bg-light">
 
-    <!-- Thanh Menu Điều Hướng Chung (Nằm cùng cấp trong thư mục html) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <!-- Header Thanh Điều Hướng -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-5" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Trang Chủ</a>
-            <div class="navbar-nav">
+            <a class="navbar-brand fw-bold" href="../index.html">TRƯỜNG ĐẠI HỌC KỸ THUẬT VÀ CÔNG NGHỆ - TVU</a>
+            <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="gioi-thieu.html">Giới thiệu</a>
-                <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+                <a class="nav-link" href="san-pham.html">Ngành học</a>
                 <a class="nav-link active" href="lien-he.html">Liên hệ</a>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <div class="row g-4">
-            
-            <!-- Cột thông tin liên hệ -->
-            <div class="col-md-5">
+    <div class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-primary">LIÊN HỆ VỚI CHÚNG TÔI</h1>
+            <p class="text-muted">Mọi thắc mắc của bạn về chương trình đào tạo sẽ được ban tư vấn giải đáp trong thời gian sớm nhất.</p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Cột thông tin liên lạc -->
+            <div class="col-lg-5">
                 <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                    <h2 class="fw-bold text-dark mb-4">Thông tin liên hệ</h2>
-                    <p class="text-muted mb-3"><strong>📍 Địa chỉ:</strong> 123 Đường Nguyễn Trãi, Quận 1, TP. Hồ Chí Minh</p>
-                    <p class="text-muted mb-3"><strong>📞 Hotline:</strong> 0123.456.789</p>
-                    <p class="text-muted mb-3"><strong>✉️ Email:</strong> hotro@monhoc.com</p>
-                    <p class="text-muted"><strong>⏰ Thời gian làm việc:</strong> 8:00 - 17:30 (Thứ 2 - Thứ 7)</p>
+                    <h3 class="fw-bold text-dark mb-4">Thông Tin Ban Tuyển Sinh</h3>
+                    
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-primary mb-1">📍 Địa chỉ:</h6>
+                        <p class="text-muted mb-0">Tòa nhà B1, Số 126 Nguyễn Thiện Thành, Khóm 4, Phường 5, TP. Trà Vinh, Tỉnh Trà Vinh</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-primary mb-1">📞 Số điện thoại tư vấn:</h6>
+                        <p class="text-muted mb-0">(0294) 3 855 246 - nhánh 152</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-primary mb-1">📧 Thư điện tử (Email):</h6>
+                        <p class="text-muted mb-0">set@tvu.edu.vn</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-primary mb-1">⏰ Giờ làm việc:</h6>
+                        <p class="text-muted mb-0">Từ Thứ Hai - Thứ Sáu (Sáng: 7:00 - 11:00 | Chiều: 13:00 - 17:00)</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Cột Form gửi lời nhắn -->
-            <div class="col-md-7">
+
+            <!-- Cột Form gửi tin nhắn tư vấn -->
+            <div class="col-lg-7">
                 <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                    <h2 class="fw-bold text-dark mb-4">Gửi lời nhắn cho chúng tôi</h2>
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold text-muted">Họ và tên</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ và tên của bạn..." required style="border-radius: 8px;">
+                    <h3 class="fw-bold text-dark mb-4">Gửi Câu Hỏi Tư Vấn Đăng Ký</h3>
+                    <form onsubmit="sendFeedback(event)">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-dark fw-semibold">Họ và tên thí sinh:</label>
+                                <input type="text" class="form-control" required placeholder="Nguyễn Văn A">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-dark fw-semibold">Số điện thoại liên lạc:</label>
+                                <input type="tel" class="form-control" required placeholder="0987xxxxxx">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-dark fw-semibold">Email:</label>
+                                <input type="email" class="form-control" required placeholder="name@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-dark fw-semibold">Ngành bạn đang quan tâm:</label>
+                                <select class="form-select">
+                                    <option>Công nghệ Thông tin</option>
+                                    <option>Kỹ thuật Phần mềm</option>
+                                    <option>Công nghệ Kỹ thuật Ô tô</option>
+                                    <option>CNKT Điện - Điện tử</option>
+                                    <option>Khác</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-dark fw-semibold">Nội dung thắc mắc:</label>
+                                <textarea class="form-control" rows="4" required placeholder="Em muốn hỏi về phương thức xét tuyển học bạ..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold rounded-pill">Gửi Thắc Mắc Ngay</button>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold text-muted">Email</label>
-                            <input type="email" class="form-control" placeholder="name@example.com" required style="border-radius: 8px;">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold text-muted">Nội dung tin nhắn</label>
-                            <textarea class="form-control" rows="4" placeholder="Nhập nội dung bạn cần hỗ trợ..." required style="border-radius: 8px;"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary px-4 py-2" style="border-radius: 12px; font-weight: 500;">Gửi liên hệ</button>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 
+    <script>
+        function sendFeedback(e) {
+            e.preventDefault();
+            alert("Cảm ơn bạn đã gửi liên hệ! Ban tư vấn tuyển sinh Trường Kỹ thuật và Công nghệ sẽ phản hồi qua email/SĐT của bạn sớm nhất.");
+            e.target.reset();
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-muted py-4 mt-5 text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 Trường Kỹ thuật và Công nghệ - Đại học Trà Vinh. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
